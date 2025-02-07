@@ -1,0 +1,13 @@
+name: Deploy App
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build -t stevensopi/production-workflow-app -f Dockerfile.dev .
+      - run: docker run -e CI=true stevensopi/production-workflow-app npm test
