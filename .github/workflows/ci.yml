@@ -1,4 +1,4 @@
-name: Deploy App
+name: Run unit tests
 on:
   push:
     branches:
